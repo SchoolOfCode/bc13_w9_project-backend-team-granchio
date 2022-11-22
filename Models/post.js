@@ -1,12 +1,12 @@
 import query from "../db/index.js";
 
-export async function getAllPosts() {
+async function getAllPosts() {
   console.log("get all posts is running");
   const result = await query("SELECT * FROM posts;");
   return result.rows;
 }
 
-export async function getPost(post) {
+export async function createPost(post) {
   const { post_title, post_content, user_id } = post;
   console.log("got a single post");
   const result = await query(
@@ -14,5 +14,7 @@ export async function getPost(post) {
       VALUES ($1, $2, $3);`,
     [post_title, post_content, user_id]
   );
-  return "Posted " + result.rows;
+  return result.rows;
 }
+
+export default getAllPosts;

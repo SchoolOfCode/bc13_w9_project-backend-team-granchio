@@ -1,5 +1,6 @@
 import express, { Router } from "express";
-import { getAllPosts } from "../Models/post.js";
+import { createPost } from "../Models/post.js";
+import getAllPosts from "../Models/post.js";
 export const postsRouter = express.Router();
 
 postsRouter.get("/", async function (req, res) {
@@ -8,10 +9,10 @@ postsRouter.get("/", async function (req, res) {
 });
 
 //get single post by ID, and all comments
-postsRouter.get("/:id", async function (req, res) {
-  const post = await getPost(req);
-  res.json({ success: true, payload: post });
-});
+// postsRouter.get("/:id", async function (req, res) {
+//   const post = await getPost(req);
+//   res.json({ success: true, payload: post });
+// });
 
 // //post a post.
 postsRouter.post("/", async function (req, res) {
