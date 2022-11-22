@@ -1,8 +1,8 @@
 import express, { Router } from "express";
-
+import { getAllPosts } from "../Models/post.js";
 export const postsRouter = express.Router();
 
 postsRouter.get("/", async function (req, res) {
-  // const allPosts = await getAllPosts();
-  res.json({ success: true, payload: "dave" });
+ const allPosts = await getAllPosts();
+  res.json({ success: true, payload: allPosts });
 });
