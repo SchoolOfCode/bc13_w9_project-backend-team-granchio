@@ -20,13 +20,6 @@ postsRouter.post("/", async function (req, res) {
   res.json({ success: true, payload: newPost });
 });
 
-//post a comment.
-postsRouter.post("/:id", async function (req, res) {
-  const data = req.body;
-  const newComment = await createComment(data);
-  res.json({ success: true, payload: newComment });
-});
-
 //patch a post by ID.
 postsRouter.patch("/:id", async function (req, res) {
   const data = req.body;
@@ -34,15 +27,11 @@ postsRouter.patch("/:id", async function (req, res) {
   res.json({ success: true, payload: updatedPost });
 });
 
-//patch a comment by ID.
-postsRouter.patch("/:id", async function (req, res) {
-  const data = req.body;
-  const updatedComment = await updateComment(data);
-  res.json({ success: true, payload: updatedComment });
+//delete a post by ID.
+postsRouter.delete("/:id", async function (req, res) {
+  const deletedPost = await deletePost(req);
+  res.json({ success: true, payload: deletedPost });
 });
 
-//delete a comment by ID.
-postsRouter.delete("/:id", async function (req, res));
-//delete a comment by ID.
 //getposts by title search VERSION 2
 //
