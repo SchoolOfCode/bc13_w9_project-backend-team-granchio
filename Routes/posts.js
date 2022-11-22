@@ -13,25 +13,25 @@ postsRouter.get("/:id", async function (req, res) {
   res.json({ success: true, payload: post });
 });
 
-//post a post.
-postsRouter.post("/", async function (req, res) {
-  const data = req.body;
-  const newPost = await createPost(data);
-  res.json({ success: true, payload: newPost });
-});
+// //post a post.
+// postsRouter.post("/", async function (req, res) {
+//   const data = req.body;
+//   const newPost = await createPost(data);
+//   res.json({ success: true, payload: newPost });
+// });
 
-//patch a post by ID.
-postsRouter.patch("/:id", async function (req, res) {
-  const data = req.body;
-  const updatedPost = await updatePost(data);
-  res.json({ success: true, payload: updatedPost });
-});
+// //patch a post by ID.
+// postsRouter.patch("/:id", async function (req, res) {
+//   const data = req.body;
+//   const updatedPost = await updatePost(data);
+//   res.json({ success: true, payload: updatedPost });
+// });
 
-//delete a post by ID.
-postsRouter.delete("/:id", async function (req, res) {
-  const deletedPost = await deletePost(req);
-  res.json({ success: true, payload: deletedPost });
-});
+// //delete a post by ID.
+// postsRouter.delete("/:id", async function (req, res) {
+//   const deletedPost = await deletePost(req);
+//   res.json({ success: true, payload: deletedPost });
+// });
 
-//getposts by title search VERSION 2
-//
+// //getposts by title search VERSION 2
+// //
