@@ -14,11 +14,12 @@ postsRouter.get("/:id", async function (req, res) {
 });
 
 // //post a post.
-// postsRouter.post("/", async function (req, res) {
-//   const data = req.body;
-//   const newPost = await createPost(data);
-//   res.json({ success: true, payload: newPost });
-// });
+postsRouter.post("/", async function (req, res) {
+  console.log("dave");
+  const data = req.body;
+  const newPost = await createPost(data);
+  res.json({ success: true, payload: newPost });
+});
 
 // //patch a post by ID.
 // postsRouter.patch("/:id", async function (req, res) {
