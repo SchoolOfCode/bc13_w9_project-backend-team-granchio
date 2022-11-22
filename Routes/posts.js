@@ -8,7 +8,7 @@ postsRouter.get("/", async function (req, res) {
   res.json({ success: true, payload: allPosts });
 });
 
-//get single post by ID, and all comments
+// get single post by ID, and all comments
 // postsRouter.get("/:id", async function (req, res) {
 //   const post = await getPost(req);
 //   res.json({ success: true, payload: post });
@@ -16,7 +16,7 @@ postsRouter.get("/", async function (req, res) {
 
 // //post a post.
 postsRouter.post("/", async function (req, res) {
-  console.log("dave");
+  console.log(req.body);
   const data = req.body;
   const newPost = await createPost(data);
   res.json({ success: true, payload: newPost });
