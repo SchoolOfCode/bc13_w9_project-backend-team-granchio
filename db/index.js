@@ -1,5 +1,6 @@
 //const { Pool } = require("pg");
-import Pool from 'pg'
+import pkg from "pg";
+const { Pool } = pkg;
 const pool = new Pool({
   connectionString: process.env.POSTGRES_CONNECTION_URL,
 });
@@ -11,7 +12,7 @@ const pool = new Pool({
 // };
 
 
-  export const query= function (text, params) {
+  export default function query(text, params) {
     return pool.query(text, params);
   }
 

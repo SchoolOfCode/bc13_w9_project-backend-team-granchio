@@ -1,4 +1,4 @@
-import { query } from "../db/index.js";
+import query from "../db/index.js";
 
 export async function getAllPosts() {
     console.log('get all posts is rnning')
