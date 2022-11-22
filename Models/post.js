@@ -18,3 +18,6 @@ export async function createPost(post) {
 }
 
 export default getAllPosts;
+
+//time to change userID from generated to UUID, so we can return posts easier for confirmation
+//of posts
