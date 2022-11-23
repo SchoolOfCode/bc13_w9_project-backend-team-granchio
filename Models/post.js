@@ -55,4 +55,4 @@ export default getAllPostsandComments;
 //Delete post
 //change getAllPosts to MEGA GET request
 //Middleware to correctly form the data for the frontend for MEGA GET
-//Patch comment, Patch post , Search by whatever
+//Patch comment, Patch post , Search by whateverr
