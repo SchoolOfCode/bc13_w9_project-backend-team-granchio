@@ -1,11 +1,11 @@
 import express, { Router } from "express";
 import { createPost } from "../Models/post.js";
-import getAllPosts from "../Models/post.js";
+import getAllPostsandComments from "../Models/post.js";
 export const postsRouter = express.Router();
 
 postsRouter.get("/", async function (req, res) {
-  const allPosts = await getAllPosts();
-  res.json({ success: true, payload: allPosts });
+  const PostsCommentsArray = await getAllPostsandComments();
+  res.json({ success: true, payload: PostsCommentsArray });
 });
 
 // get single post by ID, and all comments
