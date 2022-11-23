@@ -2,7 +2,7 @@ import query from "../db/index.js";
 
 async function getAllPosts() {
   console.log("get all posts is running");
-  const result = await query("SELECT * FROM posts;");
+  const result = await query("SELECT * FROM users LEFT JOIN posts ON users.user_id = posts.user_id LEFT JOIN comments ON posts.post_id = comments.post_id");
   return result.rows;
 }
 
@@ -21,3 +21,9 @@ export default getAllPosts;
 
 //time to change userID from generated to UUID, so we can return posts easier for confirmation
 //of posts
+
+//Delete comment
+//Delete post 
+//change getAllPosts to MEGA GET request
+//Middleware to correctly form the data for the frontend for MEGA GET
+//Patch comment, Patch post , Search by whatever
