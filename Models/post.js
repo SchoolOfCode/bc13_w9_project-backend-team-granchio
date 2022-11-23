@@ -13,16 +13,24 @@ async function getAllPostsandComments() {
   let postsCommentsArray = [];
   const allPosts = await query("SELECT * FROM posts");
   const allComments = await query("SELECT * FROM comments");
-  for (let post of allPosts.rows) {
-    let newArr = [{ postkey: post }];
-    for (let comment of allComments.rows) {
-      if (comment.post_id === post.post_id) {
-        newArr.push({ commentkey: comment });
-      }
-    }
-    postsCommentsArray.push(newArr);
-  }
-  return postsCommentsArray;
+  return allPosts.rows.map((post) => {
+    return {
+      ...post,
+      comments: allComments.rows.filter((c) => c.post_id === post.post_id),
+    }; //above map/filter shorter/tidier version of outcome, from a mentor to help
+    //with frontend structure
+  });
+
+  // for (let post of allPosts.rows) {
+  //   let newObj = { ...post, comments: [] };
+  //   for (let comment of allComments.rows) {
+  //     if (comment.post_id === post.post_id) {
+  //       newArr.push({ commentkey: comment });
+  //     }
+  //   }
+  //   postsCommentsArray.push(newArr);
+  // }
+  // return postsCommentsArray;
 }
 
 // Allposts.rows.map((post) => post.post_id ? allComments.rows.post_id : )
