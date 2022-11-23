@@ -10,7 +10,6 @@ import query from "../db/index.js";
 // }
 
 async function getAllPostsandComments() {
-  let postsCommentsArray = [];
   const allPosts = await query("SELECT * FROM posts");
   const allComments = await query("SELECT * FROM comments");
   return allPosts.rows.map((post) => {
@@ -40,7 +39,7 @@ export async function createPost(post) {
   const { post_title, post_content } = post;
   const result = await query(
     `INSERT INTO "posts" (post_title, post_content)
-      VALUES ($1, $2,) RETURNING *;`,
+      VALUES ($1, $2) RETURNING *;`,
     [post_title, post_content]
   );
   return result.rows;
