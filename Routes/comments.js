@@ -1,14 +1,14 @@
 import express from "express";
-// import createComment from "../Models/comments";
+import createComment from "../Models/comments.js";
 
 export const commentsRouter = express.Router();
 
-//post a comment.
-// commentsRouter.post("/:id", async function (req, res) {
-//   const data = req.body;
-//   const newComment = await createComment(data);
-//   res.json({ success: true, payload: newComment });
-// });
+// post a comment.
+commentsRouter.post("/", async function (req, res) {
+  const data = req.body;
+  const newComment = await createComment(data);
+  res.json({ success: true, payload: newComment });
+});
 
 // //patch a post by ID.
 // commentsRouter.patch("/:id", async function (req, res) {
