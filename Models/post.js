@@ -1,4 +1,5 @@
 import query from "../db/index.js";
+import getDuckName from "./middleware.js";
 
 //original MEGA-GET request
 // async function getAllPosts() {
@@ -37,10 +38,11 @@ async function getAllPostsandComments() {
 export async function createPost(post) {
   console.log(post);
   const { post_title, post_content } = post;
+  let duck_name = getDuckName();
   const result = await query(
     `INSERT INTO "posts" (post_title, post_content)
-      VALUES ($1, $2) RETURNING *;`,
-    [post_title, post_content]
+      VALUES ($1, $2, $3) RETURNING *;`,
+    [post_title, post_content, duck_name]
   );
   return result.rows;
 }
