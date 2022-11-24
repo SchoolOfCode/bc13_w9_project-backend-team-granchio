@@ -6,7 +6,7 @@ async function createComment(post) {
   const { post_id, comment_content } = post;
   let duck_name = getDuckName();
   const result = await query(
-    `INSERT INTO "comments" (post_id, comment_content)
+    `INSERT INTO "comments" (post_id, duck_name, comment_content)
         VALUES ($1, $2, $3) RETURNING *;`,
     [post_id, duck_name, comment_content]
   );

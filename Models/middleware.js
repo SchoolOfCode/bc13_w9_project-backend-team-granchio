@@ -1,4 +1,4 @@
-const AdjectivesArr = [
+const adjectivesArr = [
   "Blue",
   "Orange",
   "Yellow",
@@ -44,8 +44,10 @@ const nounArr = [
   "John-how-do-I-auto-generate-my-duck-please-help",
 ];
 function getDuckName() {
-  let firstName = Math.floor(Math.random() * AdjectivesArr.length);
-  let secondName = Math.floor(Math.random() * nounArr.length);
+  console.log("duck name please good sir?");
+  let firstName =
+    adjectivesArr[Math.floor(Math.random() * adjectivesArr.length)];
+  let secondName = nounArr[Math.floor(Math.random() * nounArr.length)];
   return `${firstName} ${secondName}`;
 }
 

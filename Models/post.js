@@ -39,8 +39,9 @@ export async function createPost(post) {
   console.log(post);
   const { post_title, post_content } = post;
   let duck_name = getDuckName();
+  console.log(duck_name);
   const result = await query(
-    `INSERT INTO "posts" (post_title, post_content)
+    `INSERT INTO "posts" (post_title, post_content, duck_name)
       VALUES ($1, $2, $3) RETURNING *;`,
     [post_title, post_content, duck_name]
   );
