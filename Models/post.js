@@ -1,5 +1,6 @@
 import query from "../db/index.js";
 import getDuckName from "./middleware.js";
+import backupPostsWithComments from "../db/dbBackup.js";
 
 //original MEGA-GET request
 // async function getAllPosts() {
@@ -9,29 +10,33 @@ import getDuckName from "./middleware.js";
 //   );
 //   return result.rows;
 // }
-
 async function getAllPostsandComments() {
-  const allPosts = await query("SELECT * FROM posts");
-  const allComments = await query("SELECT * FROM comments");
-  return allPosts.rows.map((post) => {
-    return {
-      ...post,
-      comments: allComments.rows.filter((c) => c.post_id === post.post_id),
-    }; //above map/filter shorter/tidier version of outcome, from a mentor to help
-    //with frontend structure
-  });
-
-  // for (let post of allPosts.rows) {
-  //   let newObj = { ...post, comments: [] };
-  //   for (let comment of allComments.rows) {
-  //     if (comment.post_id === post.post_id) {
-  //       newArr.push({ commentkey: comment });
-  //     }
-  //   }
-  //   postsCommentsArray.push(newArr);
-  // }
-  // return postsCommentsArray;
+  try {
+    const allPosts = await query("SELECT * FROM posts");
+    const allComments = await query("SELECT * FROM comments");
+    return allPosts.rows.map((post) => {
+      return {
+        ...post,
+        comments: allComments.rows.filter((c) => c.post_id === post.post_id),
+      }; //above map/filter shorter/tidier version of outcome, from a mentor to help
+      //with frontend structure
+    });
+  } catch (err) {
+    console.log(err);
+    return backupPostsWithComments;
+  }
 }
+// for (let post of allPosts.rows) {
+//   let newObj = { ...post, comments: [] };
+//   for (let comment of allComments.rows) {
+//     if (comment.post_id === post.post_id) {
+//       newArr.push({ commentkey: comment });
+//     }
+//   }
+//   postsCommentsArray.push(newArr);
+// }
+// return postsCommentsArray;
+// }
 
 // Allposts.rows.map((post) => post.post_id ? allComments.rows.post_id : )
 
