@@ -4,7 +4,7 @@ import { commentsRouter } from "./Routes/comments.js";
 import { postsRouter } from "./Routes/posts.js";
 import cors from "cors";
 
-const app = express();
+export const app = express();
 const PORT = process.env.port || 3000;
 
 // app.use(express.static("public")); not needed???
