@@ -10,14 +10,14 @@ commentsRouter.post("/", async function (req, res) {
   res.json({ success: true, payload: newComment });
 });
 
-// //patch a post by ID.
+// //patch a post by ID. This is here to be ready for stretch goal
 // commentsRouter.patch("/:id", async function (req, res) {
 //   const data = req.body;
 //   const updatedComment = await updatedComment(data);
 //   res.json({ success: true, payload: updatedComment });
 // });
 
-// //delete a comment by ID.
+// //delete a comment by ID. This is here to be ready for stretch goal
 // commentsRouter.delete("/:id", async function (req, res) {
 //   const deletedComment = await deleteComment(req);
 //   res.json({ success: true, payload: deletedComment });
