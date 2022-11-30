@@ -41,7 +41,6 @@ const nounArr = [
   "IncognitoDuck",
   "GingerbreadMan",
   "SoCMentor",
-  "John-how-do-I-auto-generate-my-duck-please-help",
 ];
 
 //this could have been done in a more easily readable way to ad weight to 'duck'
